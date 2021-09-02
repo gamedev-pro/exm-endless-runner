@@ -157,6 +157,8 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        enabled = false;
+        forwardSpeed = 0;
+        StopRoll();
+        StopJump();
     }
 }
