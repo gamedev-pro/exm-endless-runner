@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     float targetPositionX;
 
     public bool IsJumping { get; private set; }
+
+    public float JumpDuration => jumpDistanceZ / forwardSpeed;
     float jumpStartZ;
 
     private float LeftLaneX => initialPosition.x - laneDistanceX;
