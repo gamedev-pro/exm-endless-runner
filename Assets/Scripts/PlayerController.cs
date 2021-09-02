@@ -9,11 +9,12 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position = transform.position + new Vector3(-horizontalSpeed, 0, 0);
+            //Vector3(-1,0,0)*0.03 = Vector3(-0.03, 0, 0);
+            transform.position += Vector3.left * horizontalSpeed;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position = transform.position + new Vector3(horizontalSpeed, 0, 0);
+            transform.position += Vector3.right * horizontalSpeed;
         }
     }
 }
