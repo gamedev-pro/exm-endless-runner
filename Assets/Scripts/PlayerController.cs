@@ -4,18 +4,56 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float horizontalSpeed = 0.03f;
-    [SerializeField] private float forwardSpeed = 0.05f;
+    [SerializeField] private float horizontalSpeed = 15;
+    [SerializeField] private float forwardSpeed = 10;
 
-    [SerializeField] private float targetPositionX;
-    private void Update()
+    [SerializeField] private float laneDistanceX = 4;
+
+    Vector3 initialPosition;
+
+    float targetPositionX;
+
+    private float LeftLaneX => initialPosition.x - laneDistanceX;
+    private float RightLaneX => initialPosition.x + laneDistanceX;
+
+    void Awake()
     {
-        Vector3 targetPosition = transform.position;
+        initialPosition = transform.position;
+    }
 
-        targetPosition.x = Mathf.Lerp(transform.position.x, targetPositionX, Time.deltaTime * horizontalSpeed);
+    void Update()
+    {
+        ProcessInput();
 
-        targetPosition += Vector3.forward * forwardSpeed * Time.deltaTime;
+        Vector3 position = transform.position;
 
-        transform.position = targetPosition;
+        position.x = ProcessLaneMovement();
+        position.z = ProcessForwardMovement();
+
+        transform.position = position;
+    }
+
+    private void ProcessInput()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            targetPositionX += laneDistanceX;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            targetPositionX -= laneDistanceX;
+        }
+
+        targetPositionX = Mathf.Clamp(targetPositionX, LeftLaneX, RightLaneX);
+    }
+
+    private float ProcessLaneMovement()
+    {
+        return Mathf.Lerp(transform.position.x, targetPositionX, Time.deltaTime * horizontalSpeed);
+    }
+
+    private float ProcessForwardMovement()
+    {
+        return transform.position.z + forwardSpeed * Time.deltaTime;
     }
 }
