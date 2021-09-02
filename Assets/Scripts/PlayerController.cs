@@ -90,4 +90,34 @@ public class PlayerController : MonoBehaviour
         }
         return initialPosition.y + deltaY;
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log($"Entrando na Colisao -> {other.collider.name}");
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        Debug.Log($"SAINDO da Colisao -> {other.collider.name}");
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        Debug.Log($"FICANDO na Colisao -> {other.collider.name}");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"Entrando no TRIGGER -> {other.name}");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log($"SAINDO do TRIGGER -> {other.name}");
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log($"FICANDO no TRIGGER -> {other.name}");
+    }
 }
