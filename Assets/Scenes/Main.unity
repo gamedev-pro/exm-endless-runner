@@ -348,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 5
   forwardSpeed: 10
+  targetPositionX: 0
 --- !u!65 &1371181900
 BoxCollider:
   m_ObjectHideFlags: 0
