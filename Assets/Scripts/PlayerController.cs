@@ -13,21 +13,37 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpDistanceZ = 5;
     [SerializeField] private float jumpHeightY = 2;
 
+    [Header("Roll")]
+
+    [SerializeField] private float rollDistanceZ = 5;
+    [SerializeField] private Collider regularCollider;
+    [SerializeField] private Collider rollCollider;
+
+
     Vector3 initialPosition;
 
     float targetPositionX;
 
     public bool IsJumping { get; private set; }
 
+    private float rollStartZ;
+    public bool IsRolling { get; private set; }
+
     public float JumpDuration => jumpDistanceZ / forwardSpeed;
+
+    public float RollDuration => rollDistanceZ / forwardSpeed;
     float jumpStartZ;
 
     private float LeftLaneX => initialPosition.x - laneDistanceX;
     private float RightLaneX => initialPosition.x + laneDistanceX;
 
+    private bool CanJump => !IsJumping && !IsRolling;
+    private bool CanRoll => !IsJumping && !IsRolling;
+
     void Awake()
     {
         initialPosition = transform.position;
+        StopRoll();
     }
 
     void Update()
@@ -39,6 +55,7 @@ public class PlayerController : MonoBehaviour
         position.x = ProcessLaneMovement();
         position.y = ProcessJump();
         position.z = ProcessForwardMovement();
+        ProcessRoll();
 
         transform.position = position;
     }
@@ -53,10 +70,14 @@ public class PlayerController : MonoBehaviour
         {
             targetPositionX -= laneDistanceX;
         }
-        if (Input.GetKeyDown(KeyCode.W) && !IsJumping)
+        if (Input.GetKeyDown(KeyCode.W) && CanJump)
         {
             IsJumping = true;
             jumpStartZ = transform.position.z;
+        }
+        if (Input.GetKeyDown(KeyCode.S) && CanRoll)
+        {
+            StartRoll();
         }
 
         targetPositionX = Mathf.Clamp(targetPositionX, LeftLaneX, RightLaneX);
@@ -89,6 +110,33 @@ public class PlayerController : MonoBehaviour
             }
         }
         return initialPosition.y + deltaY;
+    }
+
+    private void ProcessRoll()
+    {
+        if (IsRolling)
+        {
+            float percent = (transform.position.z - rollStartZ) / rollDistanceZ;
+            if (percent >= 1)
+            {
+                StopRoll();
+            }
+        }
+    }
+
+    private void StartRoll()
+    {
+        rollStartZ = transform.position.z;
+        IsRolling = true;
+        regularCollider.enabled = false;
+        rollCollider.enabled = true;
+    }
+
+    private void StopRoll()
+    {
+        IsRolling = false;
+        regularCollider.enabled = true;
+        rollCollider.enabled = false;
     }
 
     public void Die()
