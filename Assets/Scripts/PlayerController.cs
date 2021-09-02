@@ -9,9 +9,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float laneDistanceX = 4;
 
+    [Header("Jump")]
+    [SerializeField] private float jumpDistanceZ = 5;
+    [SerializeField] private float jumpHeightY = 2;
+
     Vector3 initialPosition;
 
     float targetPositionX;
+
+    bool isJumping;
+    float jumpStartZ;
 
     private float LeftLaneX => initialPosition.x - laneDistanceX;
     private float RightLaneX => initialPosition.x + laneDistanceX;
@@ -28,6 +35,7 @@ public class PlayerController : MonoBehaviour
         Vector3 position = transform.position;
 
         position.x = ProcessLaneMovement();
+        position.y = ProcessJump();
         position.z = ProcessForwardMovement();
 
         transform.position = position;
@@ -43,6 +51,11 @@ public class PlayerController : MonoBehaviour
         {
             targetPositionX -= laneDistanceX;
         }
+        if (Input.GetKeyDown(KeyCode.W) && !isJumping)
+        {
+            isJumping = true;
+            jumpStartZ = transform.position.z;
+        }
 
         targetPositionX = Mathf.Clamp(targetPositionX, LeftLaneX, RightLaneX);
     }
@@ -55,5 +68,24 @@ public class PlayerController : MonoBehaviour
     private float ProcessForwardMovement()
     {
         return transform.position.z + forwardSpeed * Time.deltaTime;
+    }
+
+    private float ProcessJump()
+    {
+        float deltaY = 0;
+        if (isJumping)
+        {
+            float jumpCurrentProgress = transform.position.z - jumpStartZ;
+            float jumpPercent = jumpCurrentProgress / jumpDistanceZ;
+            if (jumpPercent >= 1)
+            {
+                isJumping = false;
+            }
+            else
+            {
+                deltaY = Mathf.Sin(Mathf.PI * jumpPercent) * jumpHeightY;
+            }
+        }
+        return initialPosition.y + deltaY;
     }
 }
