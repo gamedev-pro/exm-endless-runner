@@ -1,26 +1,32 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EndlessTrackGenerator : MonoBehaviour
 {
     [SerializeField] private TrackSegment[] segmentPrefabs;
+    [SerializeField] private TrackSegment firstTrackPrefab;
+    [SerializeField] private int initialTrackCount = 10;
     private List<TrackSegment> currentSegments = new List<TrackSegment>();
 
     private void Start()
     {
-        //Fazer o spawn de todos os pedacos de leveis que eu tenho
-        TrackSegment initialTrack = Instantiate(segmentPrefabs[0], transform);
+        TrackSegment initialTrack = Instantiate(firstTrackPrefab, transform);
         currentSegments.Add(initialTrack);
 
         TrackSegment previousTrack = initialTrack;
-        foreach (var trackPrefab in segmentPrefabs)
+        for (int i = 0; i < initialTrackCount; i++)
         {
-            TrackSegment trackInstance = Instantiate(trackPrefab, transform);
-            //posiciona o track no fim do previous track
-            trackInstance.transform.position = previousTrack.End.position
-                + (trackInstance.transform.position - trackInstance.Start.position);
-            currentSegments.Add(trackInstance);
+            int index = Random.Range(0, segmentPrefabs.Length); //[0, segmentPrefabs.Length - 1]
+            TrackSegment track = segmentPrefabs[index];
+            TrackSegment trackInstance = Instantiate(track, transform);
+            trackInstance.transform.position = previousTrack.End.position +
+                (trackInstance.transform.position - trackInstance.Start.position);
+
+            foreach (var obstacleSpawner in trackInstance.ObstacleSpawners)
+            {
+                obstacleSpawner.SpawnObstacle();
+            }
+
             previousTrack = trackInstance;
         }
     }

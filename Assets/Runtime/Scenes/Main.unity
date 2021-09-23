@@ -399,14 +399,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   segmentPrefabs:
-  - {fileID: 3184875356455451549, guid: 6f4192bd67111cb4bbc5e7787f58a8fb, type: 3}
   - {fileID: 6987910440948979185, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
-  - {fileID: 6987910440948979185, guid: f1bdc2e7c2c6dbe48b0aff9680552262, type: 3}
-  - {fileID: 6987910440948979185, guid: a8243710d47531c4b9e9470c657942b7, type: 3}
-  - {fileID: 6987910440948979185, guid: 5f5674db2a3cdfa4da2173fb382c8356, type: 3}
-  - {fileID: 6987910440948979185, guid: 3a7053f94ecacb741ba3e5e09c5b46cd, type: 3}
-  - {fileID: 6987910440948979185, guid: 6b3292b096e596d4392dc3eb58f9d613, type: 3}
   - {fileID: 6987910440948979185, guid: 1e9ab8860a735034b8873b1e442ff3b9, type: 3}
+  firstTrackPrefab: {fileID: 3184875356455451549, guid: 6f4192bd67111cb4bbc5e7787f58a8fb, type: 3}
+  initialTrackCount: 10
 --- !u!1 &1860627604
 GameObject:
   m_ObjectHideFlags: 0
