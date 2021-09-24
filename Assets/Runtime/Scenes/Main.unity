@@ -398,11 +398,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a308ec0c4552e4ebdc1d7cab9a277f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1371181899}
   segmentPrefabs:
   - {fileID: 6987910440948979185, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
   - {fileID: 6987910440948979185, guid: 1e9ab8860a735034b8873b1e442ff3b9, type: 3}
   firstTrackPrefab: {fileID: 3184875356455451549, guid: 6f4192bd67111cb4bbc5e7787f58a8fb, type: 3}
-  initialTrackCount: 10
+  initialTrackCount: 5
+  minTracksInFrontOfPlayer: 3
+  minDistanceToConsiderInsideTrack: 3
 --- !u!1 &1860627604
 GameObject:
   m_ObjectHideFlags: 0
