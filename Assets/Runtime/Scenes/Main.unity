@@ -347,17 +347,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1039976784133768169, guid: 740e8ed84f438b24ca8b6f85b7659234, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1039976784133768172, guid: 740e8ed84f438b24ca8b6f85b7659234, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039976784133768172, guid: 740e8ed84f438b24ca8b6f85b7659234, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1039976784133768172, guid: 740e8ed84f438b24ca8b6f85b7659234, type: 3}
       propertyPath: m_LocalPosition.x
@@ -403,10 +395,6 @@ PrefabInstance:
       propertyPath: gameMode
       value: 
       objectReference: {fileID: 1860627605}
-    - target: {fileID: 7422986508984200627, guid: 740e8ed84f438b24ca8b6f85b7659234, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7b57a4585dd75f140ac1e5cb568225cb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 740e8ed84f438b24ca8b6f85b7659234, type: 3}
 --- !u!1001 &5473261709051742749
