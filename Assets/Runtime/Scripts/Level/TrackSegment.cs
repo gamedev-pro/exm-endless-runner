@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrackSegment : MonoBehaviour
@@ -5,29 +6,15 @@ public class TrackSegment : MonoBehaviour
     [SerializeField] private Transform start;
     [SerializeField] private Transform end;
 
-    private ObstacleSpawner[] obstacleSpawners;
+    [SerializeField] private ObstacleSpawner[] obstacleSpawners;
+    [SerializeField] DecorationSpawner decorationSpawner;
 
     public Transform Start => start;
     public Transform End => end;
 
-    public ObstacleSpawner[] ObstacleSpawners => obstacleSpawners == null ?
-        obstacleSpawners = GetComponentsInChildren<ObstacleSpawner>() : obstacleSpawners;
+    public float Length => Vector3.Distance(End.position, Start.position);
+    public float SqrLength => (End.position - Start.position).sqrMagnitude;
 
-    //Igual ao ObstacleSpawners, mas menos resumido
-    public ObstacleSpawner[] ObstacleSpawners2
-    {
-        get
-        {
-            if (obstacleSpawners == null)
-            {
-                obstacleSpawners = GetComponentsInChildren<ObstacleSpawner>();
-            }
-            return obstacleSpawners;
-        }
-    }
+    public ObstacleSpawner[] ObstacleSpawners => obstacleSpawners;
+    public DecorationSpawner DecorationSpawner => decorationSpawner;
 }
-
-
-
-
-

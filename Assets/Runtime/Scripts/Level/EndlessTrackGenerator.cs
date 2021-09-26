@@ -33,7 +33,7 @@ public class EndlessTrackGenerator : MonoBehaviour
 
     private void Start()
     {
-        SpawnTrackSegment(firstTrackPrefab, null);
+        TrackSegment previousTrack = SpawnTrackSegment(firstTrackPrefab, null);
         SpawnTracks(initialTrackCount);
     }
 
@@ -47,29 +47,22 @@ public class EndlessTrackGenerator : MonoBehaviour
         var playerTrackIndex = FindTrackIndexWithPlayer();
         if (playerTrackIndex < 0)
         {
-            //TODO: throw exception?
             return;
         }
-        SpawnNewTracksIfNeeded(playerTrackIndex);
-        DespawnTracksBehindPlayer(playerTrackIndex);
-    }
 
-    private void DespawnTracksBehindPlayer(int playerTrackIndex)
-    {
-        for (int i = 0; i < playerTrackIndex; i++)
-        {
-            Destroy(currentSegments[i].gameObject);
-        }
-        currentSegments.RemoveRange(0, playerTrackIndex);
-    }
-
-    private void SpawnNewTracksIfNeeded(int playerTrackIndex)
-    {
+        //Spawn more track is needed
         int tracksInFrontOfPlayer = currentSegments.Count - (playerTrackIndex + 1);
         if (tracksInFrontOfPlayer < minTracksInFrontOfPlayer)
         {
             SpawnTracks(minTracksInFrontOfPlayer - tracksInFrontOfPlayer);
         }
+
+        //Despawn tracks behind player
+        for (int i = 0; i < playerTrackIndex; i++)
+        {
+            Destroy(currentSegments[i].gameObject);
+        }
+        currentSegments.RemoveRange(0, playerTrackIndex);
     }
 
     private int FindTrackIndexWithPlayer()
@@ -129,14 +122,16 @@ public class EndlessTrackGenerator : MonoBehaviour
             obstacleSpawner.SpawnObstacle();
         }
 
+        trackInstance.DecorationSpawner.SpawnDecorations();
+
         currentSegments.Add(trackInstance);
 
-        UpdateRewardTracking();
+        UpdateTrackDifficultyParameters();
 
         return trackInstance;
     }
 
-    private void UpdateRewardTracking()
+    private void UpdateTrackDifficultyParameters()
     {
         if (isSpawningRewardTracks)
         {

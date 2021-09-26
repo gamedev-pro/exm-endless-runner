@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5473261710550771339}
   - component: {fileID: 5473261710550771336}
+  - component: {fileID: 3490472212628903674}
   m_Layer: 0
   m_Name: GameMode
   m_TagString: Untagged
@@ -44,3 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadGameDelay: 3
+--- !u!114 &3490472212628903674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473261710550771337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18990d429e6e7bc49a638e96d7f9fc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curveStrength: 0.005
