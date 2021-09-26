@@ -1,24 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MainHUD : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameMode gameMode;
 
-    [SerializeField] private Button testButton;
+    [Header("Overlays")]
+    [SerializeField] private GameObject hudOverlay;
+    [SerializeField] private GameObject pauseOverlay;
+
+    [Header("UI Elements")]
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI distanceText;
+
+
+    private void Awake()
+    {
+        ShowHudOverlay();
+    }
 
     private void LateUpdate()
     {
         scoreText.text = $"Score : {player.Score}";
+        distanceText.text = $"{Mathf.RoundToInt(player.TravelledDistance)}m";
     }
 
-    public void TestButton()
+    public void PauseGame()
     {
-        testButton.interactable = false;
-        Debug.Log("Clicked!");
+        ShowPauseOverlay();
+        gameMode.PauseGame();
+    }
+
+    public void ResumeGame()
+    {
+        gameMode.ResumeGame();
+        ShowHudOverlay();
+    }
+
+    private void ShowHudOverlay()
+    {
+        pauseOverlay.SetActive(false);
+        hudOverlay.SetActive(true);
+    }
+
+    private void ShowPauseOverlay()
+    {
+        pauseOverlay.SetActive(true);
+        hudOverlay.SetActive(false);
     }
 }
