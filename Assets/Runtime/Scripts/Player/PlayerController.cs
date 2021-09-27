@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private PlayerAudioController audioController;
     [SerializeField] private float horizontalSpeed = 15;
     [SerializeField] private float forwardSpeed = 10;
 
@@ -108,6 +109,7 @@ public class PlayerController : MonoBehaviour
         IsJumping = true;
         jumpStartZ = transform.position.z;
         StopRoll();
+        audioController.PlayJumpSound();
     }
 
     private void StopJump()
@@ -155,6 +157,8 @@ public class PlayerController : MonoBehaviour
         rollCollider.enabled = true;
 
         StopJump();
+
+        audioController.PlayRollSound();
     }
 
     private void StopRoll()
