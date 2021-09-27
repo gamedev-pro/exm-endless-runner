@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(MainHUDAudioController))]
 public class MainHUD : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
@@ -17,9 +18,12 @@ public class MainHUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI distanceText;
     [SerializeField] private TextMeshProUGUI countdownText;
 
+    private MainHUDAudioController audioController;
+
     private void Awake()
     {
         ShowHudOverlay();
+        audioController = GetComponent<MainHUDAudioController>();
     }
 
     private void LateUpdate()
@@ -44,6 +48,7 @@ public class MainHUD : MonoBehaviour
         gameMode.ResumeGame();
         ShowHudOverlay();
     }
+
     public void ShowStartGameOverlay()
     {
         startGameOverlay.SetActive(true);
@@ -78,15 +83,26 @@ public class MainHUD : MonoBehaviour
         float timeToStart = Time.time + countdownSeconds;
         yield return null;
         countdownText.gameObject.SetActive(true);
+        int previousRemainingTimeInt = countdownSeconds;
         while (Time.time <= timeToStart)
         {
             float remainingTime = timeToStart - Time.time;
             int remainingTimeInt = Mathf.FloorToInt(remainingTime);
             countdownText.text = (remainingTimeInt + 1).ToString();
+
+            if (previousRemainingTimeInt != remainingTimeInt)
+            {
+                audioController.PlayCountdownAudio();
+            }
+
+            previousRemainingTimeInt = remainingTimeInt;
+
             float percent = remainingTime - remainingTimeInt;
             countdownText.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, percent);
             yield return null;
         }
+
+        audioController.PlayCountdownFinishedAudio();
 
         countdownText.gameObject.SetActive(false);
     }

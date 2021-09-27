@@ -5,6 +5,8 @@ public class PlayerAudioController : MonoBehaviour
 {
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip rollSound;
+
+    [SerializeField] private AudioClip deathSound;
     private AudioSource audioSource;
 
     private AudioSource AudioSource => audioSource == null ? audioSource = GetComponent<AudioSource>() : audioSource;
@@ -17,6 +19,11 @@ public class PlayerAudioController : MonoBehaviour
     public void PlayRollSound()
     {
         Play(rollSound);
+    }
+
+    public void PlayDeathSound()
+    {
+        Play(deathSound);
     }
 
     private void Play(AudioClip clip)
