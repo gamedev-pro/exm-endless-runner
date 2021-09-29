@@ -39,9 +39,15 @@ public class TrackSegment : MonoBehaviour
     {
         if (pickupLineSpawners.Length > 0 && Random.value <= pickupSpawnChance)
         {
+            Vector3[] skipPositions = new Vector3[obstacleSpawners.Length];
+            for (int i = 0; i < skipPositions.Length; i++)
+            {
+                skipPositions[i] = ObstacleSpawners[i].transform.position;
+            }
+
             int randomIndex = Random.Range(0, pickupLineSpawners.Length);
             PickupLineSpawner pickupSpawner = pickupLineSpawners[randomIndex];
-            pickupSpawner.SpawnPickupLine();
+            pickupSpawner.SpawnPickupLine(skipPositions);
         }
     }
 }
