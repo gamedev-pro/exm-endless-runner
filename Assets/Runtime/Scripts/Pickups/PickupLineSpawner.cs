@@ -8,14 +8,32 @@ public class PickupLineSpawner : MonoBehaviour
 
     [SerializeField] private float spaceBetweenPickups = 0.5f;
 
-    public void SpawnPickupLine()
+    public void SpawnPickupLine(Vector3[] skipPositions)
     {
         Vector3 currentSpawnPosition = start.position;
         while (currentSpawnPosition.z < end.position.z)
         {
-            Pickup pickup = Instantiate(pickupPrefab, currentSpawnPosition, Quaternion.identity, transform);
+            if (!ShouldSkipPosition(currentSpawnPosition, skipPositions))
+            {
+                Pickup pickup = Instantiate(pickupPrefab, currentSpawnPosition, Quaternion.identity, transform);
+            }
             currentSpawnPosition.z += spaceBetweenPickups;
         }
+    }
+
+    private bool ShouldSkipPosition(Vector3 currentSpawnPosition, Vector3[] skipPositions)
+    {
+        foreach (var skipPosition in skipPositions)
+        {
+            float skipStart = skipPosition.z - spaceBetweenPickups * 0.5f;
+            float skipEnd = skipPosition.z + spaceBetweenPickups * 0.5f;
+
+            if (currentSpawnPosition.z >= skipStart && currentSpawnPosition.z <= skipEnd)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void OnDrawGizmos()
