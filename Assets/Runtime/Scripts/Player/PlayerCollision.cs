@@ -21,6 +21,7 @@ public class PlayerCollision : MonoBehaviour
         Obstacle obstacle = other.GetComponent<Obstacle>();
         if (obstacle != null)
         {
+            obstacle.PlayCollisionFeedback(other);
             playerController.Die();
             animationController.Die();
             gameMode.OnGameOver();
