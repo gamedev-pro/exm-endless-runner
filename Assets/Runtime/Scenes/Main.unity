@@ -809,6 +809,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 631572447}
     m_Modifications:
+    - target: {fileID: 1722365734300395312, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
+      propertyPath: gameMode
+      value: 
+      objectReference: {fileID: 1860627605}
     - target: {fileID: 1841159263039090035, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
       propertyPath: player
       value: 
@@ -904,6 +908,14 @@ PrefabInstance:
     - target: {fileID: 1841159263039090037, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
       propertyPath: m_Name
       value: MainHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841159263440889919, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841159263925460965, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
