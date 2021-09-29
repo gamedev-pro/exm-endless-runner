@@ -1071,6 +1071,7 @@ MonoBehaviour:
   scoreText: {fileID: 603468993}
   distanceText: {fileID: 1205311676}
   countdownText: {fileID: 1774192159}
+  cherryCountText: {fileID: 0}
 --- !u!114 &1146149549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1496,6 +1497,63 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e1a536f74c7ef384a8d7132148ace0c8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f0b61dbb59cade409fb8c20a47d2f0b, type: 3}
+--- !u!1001 &1268529103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920970015965747314, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946437269724753682, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
+      propertyPath: m_Name
+      value: Track_Mid_Easy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7a017a5d2cad284bb2a5356291b7a4b, type: 3}
 --- !u!1 &1358801044
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
@@ -25,6 +23,13 @@ public class PlayerCollision : MonoBehaviour
             playerController.Die();
             animationController.Die();
             gameMode.OnGameOver();
+        }
+
+        Pickup pickup = other.GetComponent<Pickup>();
+        if (pickup != null)
+        {
+            gameMode.OnCherryPickedUp();
+            pickup.OnPickedUp();
         }
     }
 }

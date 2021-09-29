@@ -1,0 +1,31 @@
+using UnityEngine;
+
+public class PickupLineSpawner : MonoBehaviour
+{
+    [SerializeField] private Pickup pickupPrefab;
+    [SerializeField] private Transform start;
+    [SerializeField] private Transform end;
+
+    [SerializeField] private float spaceBetweenPickups = 0.5f;
+
+    public void SpawnPickupLine()
+    {
+        Vector3 currentSpawnPosition = start.position;
+        while (currentSpawnPosition.z < end.position.z)
+        {
+            Pickup pickup = Instantiate(pickupPrefab, currentSpawnPosition, Quaternion.identity, transform);
+            currentSpawnPosition.z += spaceBetweenPickups;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Vector3 currentSpawnPosition = start.position;
+        while (currentSpawnPosition.z < end.position.z)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawCube(currentSpawnPosition, Vector3.one);
+            currentSpawnPosition.z += spaceBetweenPickups;
+        }
+    }
+}
