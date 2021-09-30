@@ -30,6 +30,8 @@ public class GameMode : MonoBehaviour
     private float score;
     public int Score => Mathf.RoundToInt(score);
 
+    public int CherriesPicked { get; private set; }
+
     private float startGameTime;
 
     private bool isGameRunning = false;
@@ -65,14 +67,6 @@ public class GameMode : MonoBehaviour
         StartCoroutine(ReloadGameCoroutine());
     }
 
-    private IEnumerator ReloadGameCoroutine()
-    {
-        yield return new WaitForSeconds(1);
-        musicPlayer.PlayGameOverMusic();
-        yield return new WaitForSeconds(reloadGameDelay);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void StartGame()
     {
         StartCoroutine(StartGameCor());
@@ -88,6 +82,11 @@ public class GameMode : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void OnCherryPickedUp()
+    {
+        CherriesPicked++;
+    }
+
     private IEnumerator StartGameCor()
     {
         musicPlayer.PlayMainTrackMusic();
@@ -98,5 +97,13 @@ public class GameMode : MonoBehaviour
         player.ForwardSpeed = startPlayerSpeed;
         startGameTime = Time.time;
         isGameRunning = true;
+    }
+
+    private IEnumerator ReloadGameCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        musicPlayer.PlayGameOverMusic();
+        yield return new WaitForSeconds(reloadGameDelay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
