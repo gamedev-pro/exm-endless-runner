@@ -32,6 +32,8 @@ public class GameMode : MonoBehaviour
     private float score;
 
     public SaveGameData CurrentSave => gameSaver.CurrentSave;
+    public AudioPreferences AudioPreferences => gameSaver.AudioPreferences;
+
     public int Score => Mathf.RoundToInt(score);
 
     public int CherriesPicked { get; private set; }
