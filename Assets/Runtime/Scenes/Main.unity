@@ -1091,10 +1091,6 @@ PrefabInstance:
       propertyPath: gameMode
       value: 
       objectReference: {fileID: 1860627605}
-    - target: {fileID: 1841159263039090033, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -1450324270061248655, guid: c07e61c505e4dfe4b96c2d76721cda45, type: 2}
     - target: {fileID: 1841159263039090035, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
       propertyPath: player
       value: 
@@ -1199,34 +1195,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4832987649609238011, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254895038808763425, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254895038808763425, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254895038808763425, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnMainVolumeChange
-      objectReference: {fileID: 0}
-    - target: {fileID: 7787664425197384319, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8988525865233589494, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143832626944214546, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 3077257688664020118, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1860627605}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8f9d1ec05128db40a36ad9a11040a0b, type: 3}
 --- !u!1001 &3405010277973096159
