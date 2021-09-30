@@ -28,8 +28,6 @@ public class PlayerAudioController : MonoBehaviour
 
     private void Play(AudioClip clip)
     {
-        AudioSource.clip = clip;
-        AudioSource.loop = false;
-        AudioSource.Play();
+        AudioUtility.PlayAudioCue(AudioSource, clip);
     }
 }
