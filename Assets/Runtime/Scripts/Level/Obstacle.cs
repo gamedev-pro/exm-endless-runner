@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Obstacle : MonoBehaviour, IPlayerCollisionReaction
 {
     [SerializeField] private DecorationSpawner[] decorationSpawners;
 
@@ -19,6 +19,15 @@ public class Obstacle : MonoBehaviour
             }
         }
     }
+
+    public void ReactToPlayerCollision(in PlayerCollisionInfo collisionInfo)
+    {
+        Die(collisionInfo.MyCollider);
+        collisionInfo.Player.Die();
+        collisionInfo.PlayerAnimationController.Die();
+        collisionInfo.GameMode.OnGameOver();
+    }
+
     public virtual void Die(Collider collider)
     {
         ObstacleDecoration decorationHit = FindDecorationForCollider(collider);
