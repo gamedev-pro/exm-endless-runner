@@ -7,6 +7,7 @@ public class SaveGameData
     public int LastScore;
     public int HighestScore;
     public int TotalCherriesCollected;
+    public int TotalPeanutsCollected;
 }
 
 public class AudioPreferences

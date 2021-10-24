@@ -20,6 +20,7 @@ public class MainHUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countdownText;
 
     [SerializeField] private TextMeshProUGUI cherryCountText;
+    [SerializeField] private TextMeshProUGUI peanutCountText;
 
     private MainHUDAudioController audioController;
 
@@ -34,6 +35,7 @@ public class MainHUD : MonoBehaviour
         scoreText.text = $"Score : {gameMode.Score}";
         distanceText.text = $"{Mathf.RoundToInt(player.TravelledDistance)}m";
         cherryCountText.text = $"{gameMode.CherriesPicked}";
+        peanutCountText.text = $"{gameMode.PeanutsPicked}";
     }
 
     public void StartGame()

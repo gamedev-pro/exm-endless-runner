@@ -75,7 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24aff334fd97bfd43a86efc06dd3b62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPrefab: {fileID: 257788523667487317, guid: 1ab1f5214c99c93499f051036fc9fd90, type: 3}
+  regularPickupPrefab: {fileID: 257788523667487317, guid: 1ab1f5214c99c93499f051036fc9fd90, type: 3}
+  rarePickupPrefab: {fileID: 4082671439204751247, guid: 01bafc68777c5e346b239cb4878489a1, type: 3}
+  rarePickupChance: 0.1
   start: {fileID: 1572515561224187458}
   end: {fileID: 150140696781532821}
   spaceBetweenPickups: 3

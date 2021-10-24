@@ -40,7 +40,8 @@ public class GameMode : MonoBehaviour
 
     public int Score => Mathf.RoundToInt(score);
 
-    public int CherriesPicked { get; private set; }
+    public int CherriesPicked { get; set; }
+    public int PeanutsPicked { get; set; }
 
     private float startGameTime;
 
@@ -80,7 +81,8 @@ public class GameMode : MonoBehaviour
         {
             HighestScore = Score > gameSaver.CurrentSave.HighestScore ? Score : gameSaver.CurrentSave.HighestScore,
             LastScore = Score,
-            TotalCherriesCollected = gameSaver.CurrentSave.TotalCherriesCollected + CherriesPicked
+            TotalCherriesCollected = gameSaver.CurrentSave.TotalCherriesCollected + CherriesPicked,
+            TotalPeanutsCollected = gameSaver.CurrentSave.TotalPeanutsCollected + PeanutsPicked
         });
 
         StartCoroutine(ReloadGameCoroutine());
@@ -99,11 +101,6 @@ public class GameMode : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
-    }
-
-    public void OnCherryPickedUp()
-    {
-        CherriesPicked++;
     }
 
     public void QuitGame()

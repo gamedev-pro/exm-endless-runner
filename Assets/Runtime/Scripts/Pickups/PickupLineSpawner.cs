@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class PickupLineSpawner : MonoBehaviour
 {
-    [SerializeField] private Pickup pickupPrefab;
+    [Header("Pickups")]
+    [SerializeField] private Pickup regularPickupPrefab;
+    [SerializeField] private Pickup rarePickupPrefab;
+    [SerializeField] private float rarePickupChance = 0.1f;
+
     [SerializeField] private Transform start;
     [SerializeField] private Transform end;
 
@@ -15,10 +19,16 @@ public class PickupLineSpawner : MonoBehaviour
         {
             if (!ShouldSkipPosition(currentSpawnPosition, skipPositions))
             {
+                Pickup pickupPrefab = ChoosePickupPrefab();
                 Pickup pickup = Instantiate(pickupPrefab, currentSpawnPosition, Quaternion.identity, transform);
             }
             currentSpawnPosition.z += spaceBetweenPickups;
         }
+    }
+
+    private Pickup ChoosePickupPrefab()
+    {
+        return Random.value <= rarePickupChance ? rarePickupPrefab : regularPickupPrefab;
     }
 
     private bool ShouldSkipPosition(Vector3 currentSpawnPosition, Vector3[] skipPositions)
