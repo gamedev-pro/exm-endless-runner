@@ -22,6 +22,8 @@ public class MainHUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cherryCountText;
     [SerializeField] private TextMeshProUGUI peanutCountText;
 
+    [SerializeField] private TextMeshProUGUI scoreMultiplierText;
+
     private MainHUDAudioController audioController;
 
     private void Awake()
@@ -36,6 +38,8 @@ public class MainHUD : MonoBehaviour
         distanceText.text = $"{Mathf.RoundToInt(player.TravelledDistance)}m";
         cherryCountText.text = $"{gameMode.CherriesPicked}";
         peanutCountText.text = $"{gameMode.PeanutsPicked}";
+        scoreMultiplierText.text = $"{gameMode.TemporaryScoreMultipler}x";
+        scoreMultiplierText.gameObject.SetActive(gameMode.TemporaryScoreMultipler > 1);
     }
 
     public void StartGame()

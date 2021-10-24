@@ -43,6 +43,13 @@ public class GameMode : MonoBehaviour
     public int CherriesPicked { get; set; }
     public int PeanutsPicked { get; set; }
 
+    public int TemporaryScoreMultipler
+    {
+        get => temporaryScoreMultiplier;
+        set => temporaryScoreMultiplier = Mathf.Max(1, value);
+    }
+
+    private int temporaryScoreMultiplier = 1;
     private float startGameTime;
 
     private bool isGameRunning = false;
@@ -60,7 +67,7 @@ public class GameMode : MonoBehaviour
             float timePercent = (Time.time - startGameTime) / timeToMaxSpeedSeconds;
             player.ForwardSpeed = Mathf.Lerp(startPlayerSpeed, maxPlayerSpeed, timePercent);
             float extraScoreMultiplier = 1 + timePercent;
-            score += baseScoreMultiplier * extraScoreMultiplier * player.ForwardSpeed * Time.deltaTime;
+            score += baseScoreMultiplier * TemporaryScoreMultipler * extraScoreMultiplier * player.ForwardSpeed * Time.deltaTime;
         }
     }
 
