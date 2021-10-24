@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     public float TravelledDistance => transform.position.z - initialPosition.z;
 
+    public bool IsInvincible { get; set; }
+
     private bool isDead = false;
 
     void Awake()
