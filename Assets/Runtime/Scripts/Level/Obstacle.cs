@@ -23,9 +23,12 @@ public class Obstacle : MonoBehaviour, IPlayerCollisionReaction
     public void ReactToPlayerCollision(in PlayerCollisionInfo collisionInfo)
     {
         Die(collisionInfo.MyCollider);
-        collisionInfo.Player.Die();
-        collisionInfo.PlayerAnimationController.Die();
-        collisionInfo.GameMode.OnGameOver();
+        if (!collisionInfo.Player.IsInvincible)
+        {
+            collisionInfo.Player.Die();
+            collisionInfo.PlayerAnimationController.Die();
+            collisionInfo.GameMode.OnGameOver();
+        }
     }
 
     public virtual void Die(Collider collider)
