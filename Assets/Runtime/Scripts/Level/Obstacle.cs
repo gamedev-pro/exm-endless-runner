@@ -23,7 +23,8 @@ public class Obstacle : MonoBehaviour, IPlayerCollisionReaction
     public void ReactToPlayerCollision(in PlayerCollisionInfo collisionInfo)
     {
         Die(collisionInfo.MyCollider);
-        if (!collisionInfo.Player.IsInvincible)
+        PowerUpBehaviour_Invincible invincibleBehaviour = collisionInfo.Player.GetComponentInChildren<PowerUpBehaviour_Invincible>();
+        if (invincibleBehaviour == null || !invincibleBehaviour.IsPowerUpActive)
         {
             collisionInfo.Player.Die();
             collisionInfo.PlayerAnimationController.Die();

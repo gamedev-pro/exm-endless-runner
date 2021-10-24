@@ -11,7 +11,7 @@ public abstract class Pickup : MonoBehaviour, IPlayerCollisionReaction
 
     protected abstract void ExecutePickupBehaviour(in PlayerCollisionInfo collisionInfo);
 
-    protected virtual float LifeTimeAfterPickedUp => pickupAudio.length;
+    private float LifeTimeAfterPickedUp => pickupAudio.length;
 
     public void OnPickedUp(in PlayerCollisionInfo collisionInfo)
     {

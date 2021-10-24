@@ -1,11 +1,8 @@
+using UnityEngine;
 public class PowerUpInvincible : PowerUp
 {
-    protected override void EndPowerUp(in PlayerCollisionInfo collisionInfo)
+    protected override void ActivatePowerUpBehaviour(PlayerController player)
     {
-    }
-
-    protected override void StartPowerUp(in PlayerCollisionInfo collisionInfo)
-    {
-        collisionInfo.Player.SetInvincible(PowerUpTime);
+        player.GetComponentInChildren<PowerUpBehaviour_Invincible>().Activate(PowerUpTime);
     }
 }

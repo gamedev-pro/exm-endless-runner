@@ -4,13 +4,8 @@ public class PowerUpScoreMultiplier : PowerUp
 {
     [SerializeField] private int scoreMultiplier = 2;
 
-    protected override void EndPowerUp(in PlayerCollisionInfo collisionInfo)
+    protected override void ActivatePowerUpBehaviour(PlayerController player)
     {
-        collisionInfo.GameMode.TemporaryScoreMultipler = 1;
-    }
-
-    protected override void StartPowerUp(in PlayerCollisionInfo collisionInfo)
-    {
-        collisionInfo.GameMode.TemporaryScoreMultipler = scoreMultiplier;
+        player.GetComponentInChildren<PowerUpBehaviour_ScoreMultiplier>().Activate(scoreMultiplier, PowerUpTime);
     }
 }

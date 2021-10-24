@@ -44,10 +44,6 @@ public class PlayerController : MonoBehaviour
 
     public float TravelledDistance => transform.position.z - initialPosition.z;
 
-    public bool IsInvincible => Time.time <= invincibleTimeEnd;
-
-    private float invincibleTimeEnd;
-
     private bool isDead = false;
 
     void Awake()
@@ -178,10 +174,5 @@ public class PlayerController : MonoBehaviour
         StopJump();
         regularCollider.enabled = false;
         rollCollider.enabled = false;
-    }
-
-    public void SetInvincible(float invincibilityTime)
-    {
-        invincibleTimeEnd = Time.time + invincibilityTime;
     }
 }
