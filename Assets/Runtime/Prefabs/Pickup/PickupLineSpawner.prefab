@@ -79,8 +79,10 @@ MonoBehaviour:
   rarePickupPrefab: {fileID: 4082671439204751247, guid: 01bafc68777c5e346b239cb4878489a1, type: 3}
   rarePickupChance: 0.1
   powerUpOptions:
+  - {fileID: -7013650735195639549, guid: 9ca5753d61ef51148bd2c16f173f8f5b, type: 3}
   - {fileID: 3396047664371284973, guid: bc335f25811df864ca4cd387b516228a, type: 3}
-  powerUpChance: 1
+  - {fileID: 8624963987908596335, guid: d8bddda7eedefa74f8f7d5d349f5bdcc, type: 3}
+  powerUpChance: 0.1
   start: {fileID: 1572515561224187458}
   end: {fileID: 150140696781532821}
   spaceBetweenPickups: 3

@@ -151,6 +151,26 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &-7013650735195639549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508363298635219050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869f7a1fa90971247b3f3fab68f5e377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupAudio: {fileID: 8300000, guid: 4777a323670ccc845964e95ce750efc1, type: 3}
+  model: {fileID: 7254432254604652903}
+  powerUpTime: 30
+  powerUpParticlesPrefab: {fileID: 1778844492263050, guid: 8cede34fb26a722408198e0d27628ae9, type: 3}
+  attractSpeed: 8
+  scaleSpeed: 2
+  finalScaleMultipler: 0.6
+  attractionBox: {x: 4.05, y: 4, z: 10}
 --- !u!1001 &571658933398042734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -208,6 +228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39daebf3f44aa7c43b79af8b2124a253, type: 3}
+--- !u!1 &8508363298635219050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8213782396315760644, guid: 39daebf3f44aa7c43b79af8b2124a253, type: 3}
+  m_PrefabInstance: {fileID: 571658933398042734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2386329149098332068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2806588584754477002, guid: 39daebf3f44aa7c43b79af8b2124a253, type: 3}
@@ -226,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4164161110307184, guid: 8cede34fb26a722408198e0d27628ae9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4164161110307184, guid: 8cede34fb26a722408198e0d27628ae9, type: 3}
       propertyPath: m_LocalRotation.x
