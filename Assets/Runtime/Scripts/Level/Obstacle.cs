@@ -19,8 +19,7 @@ public class Obstacle : MonoBehaviour
             }
         }
     }
-
-    public void PlayCollisionFeedback(Collider collider)
+    public virtual void Die(Collider collider)
     {
         ObstacleDecoration decorationHit = FindDecorationForCollider(collider);
         if (decorationHit != null)

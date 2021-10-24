@@ -9,7 +9,7 @@ public class ObstacleDecoration : MonoBehaviour
 
     private AudioSource AudioSource => audioSource == null ? audioSource = GetComponent<AudioSource>() : audioSource;
 
-    public void PlayCollisionFeedback()
+    public virtual void PlayCollisionFeedback()
     {
         AudioUtility.PlayAudioCue(AudioSource, collisionAudio);
         Animation animComp = GetComponentInChildren<Animation>();
