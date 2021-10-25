@@ -58,6 +58,12 @@ public class GameMode : MonoBehaviour
     {
         gameSaver.LoadGame();
         SetWaitForStartGameState();
+        player.PlayerDeathEvent += OnPlayerDeath;
+    }
+
+    private void OnDestroy()
+    {
+        player.PlayerDeathEvent -= OnPlayerDeath;
     }
 
     private void Update()
@@ -79,7 +85,12 @@ public class GameMode : MonoBehaviour
         musicPlayer.PlayStartMenuMusic();
     }
 
-    public void OnGameOver()
+    public void OnPlayerDeath()
+    {
+        GameOver();
+    }
+
+    public void GameOver()
     {
         isGameRunning = false;
         player.ForwardSpeed = 0;

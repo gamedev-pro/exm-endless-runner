@@ -27,8 +27,6 @@ public class Obstacle : MonoBehaviour, IPlayerCollisionReaction
         if (invincibleBehaviour == null || !invincibleBehaviour.IsPowerUpActive)
         {
             collisionInfo.Player.Die();
-            collisionInfo.PlayerAnimationController.Die();
-            collisionInfo.GameMode.OnGameOver();
         }
     }
 

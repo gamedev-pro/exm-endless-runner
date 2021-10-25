@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Collider regularCollider;
     [SerializeField] private Collider rollCollider;
 
+    public event Action PlayerDeathEvent;
 
     Vector3 initialPosition;
 
@@ -174,5 +176,7 @@ public class PlayerController : MonoBehaviour
         StopJump();
         regularCollider.enabled = false;
         rollCollider.enabled = false;
+
+        PlayerDeathEvent?.Invoke();
     }
 }

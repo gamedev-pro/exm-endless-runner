@@ -11,6 +11,12 @@ public class PlayerAnimationController : MonoBehaviour
     private void Awake()
     {
         player = GetComponent<PlayerController>();
+        player.PlayerDeathEvent += OnPlayerDeath;
+    }
+
+    private void OnDestroy()
+    {
+        player.PlayerDeathEvent -= OnPlayerDeath;
     }
 
     private void Update()
@@ -19,7 +25,7 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetBool(PlayerAnimationConstants.IsRolling, player.IsRolling);
     }
 
-    public void Die()
+    public void OnPlayerDeath()
     {
         animator.SetTrigger(PlayerAnimationConstants.DieTrigger);
     }
