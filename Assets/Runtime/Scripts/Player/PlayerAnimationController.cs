@@ -25,7 +25,7 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetBool(PlayerAnimationConstants.IsRolling, player.IsRolling);
     }
 
-    public void OnPlayerDeath()
+    private void OnPlayerDeath()
     {
         animator.SetTrigger(PlayerAnimationConstants.DieTrigger);
     }
