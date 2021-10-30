@@ -81,7 +81,7 @@ public class GameMode : MonoBehaviour
     {
         player.enabled = false;
         isGameRunning = false;
-        mainHud.ShowStartGameOverlay();
+        mainHud.ShowOverlay<StartGameOverlay>();
         musicPlayer.PlayStartMenuMusic();
     }
 
