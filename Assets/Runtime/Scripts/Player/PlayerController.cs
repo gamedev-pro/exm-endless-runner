@@ -167,18 +167,9 @@ public class PlayerController : MonoBehaviour
         rollCollider.enabled = false;
     }
 
-    private bool IsInvincible
-    {
-        get
-        {
-            PowerUpBehaviour_Invincible invincibleBehaviour = GetComponentInChildren<PowerUpBehaviour_Invincible>();
-            return invincibleBehaviour != null && invincibleBehaviour.IsPowerUpActive;
-        }
-    }
-
     public void OnCollidedWithObstacle()
     {
-        if (!IsInvincible)
+        if (!this.IsInvincible())
         {
             Die();
         }

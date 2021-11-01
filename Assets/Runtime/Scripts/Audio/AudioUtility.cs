@@ -5,7 +5,7 @@ using UnityEngine;
 public static class AudioUtility
 {
     //Tocar um SFX de Audio
-    public static void PlayAudioCue(AudioSource source, AudioClip clip)
+    public static void PlayAudioCue(this AudioSource source, AudioClip clip)
     {
         if (source.outputAudioMixerGroup == null)
         {
